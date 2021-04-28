@@ -44,7 +44,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreTenDaysOrLessButMoreThanFive() {
+    void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenTenAndFiveDaysRemaining() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0);
         GildedRose app = new GildedRose(toArray(item));
 
@@ -56,6 +56,21 @@ class GildedRoseTest {
 
         assertThat(item.sellIn).isEqualTo(5);
         assertThat(item.quality).isEqualTo(10);
+    }
+
+    @Test
+    void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenFiveAndZeroDaysRemaining() {
+        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0);
+        GildedRose app = new GildedRose(toArray(item));
+
+        app.updateQuality();
+        app.updateQuality();
+        app.updateQuality();
+        app.updateQuality();
+        app.updateQuality();
+
+        assertThat(item.sellIn).isZero();
+        assertThat(item.quality).isEqualTo(15);
     }
 
     private static Item[] toArray(Item item) {
