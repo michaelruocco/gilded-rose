@@ -129,6 +129,26 @@ class GildedRoseTest {
         assertThat(item.quality).isZero();
     }
 
+    @Test
+    void sellInOfSulfurasShouldNotChange() {
+        Item item = new Item("Sulfuras, Hand of Ragnaros", 0, 0);
+        GildedRose app = new GildedRose(toArray(item));
+
+        executeNTimes(5, app::updateQuality);
+
+        assertThat(item.sellIn).isZero();
+    }
+
+    @Test
+    void sellInOfQualityOfSulfurasShouldNotChange() {
+        Item item = new Item("Sulfuras, Hand of Ragnaros", 0, 0);
+        GildedRose app = new GildedRose(toArray(item));
+
+        executeNTimes(5, app::updateQuality);
+
+        assertThat(item.quality).isZero();
+    }
+
     private void executeNTimes(int n, Runnable action) {
         IntStream.range(0, n).forEach(i -> action.run());
     }
