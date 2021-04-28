@@ -136,7 +136,7 @@ class GildedRoseTest {
 
     @Test
     void sellInOfSulfurasShouldNotChange() {
-        Item item = new Item(SULFURAS, 0, 0);
+        Item item = new Item(SULFURAS, 0, 80);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -146,12 +146,12 @@ class GildedRoseTest {
 
     @Test
     void sellInOfQualityOfSulfurasShouldNotChange() {
-        Item item = new Item(SULFURAS, 0, 0);
+        Item item = new Item(SULFURAS, 0, 80);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
-        assertThat(item.quality).isZero();
+        assertThat(item.quality).isEqualTo(80);
     }
 
     private void executeNTimes(int n, Runnable action) {
