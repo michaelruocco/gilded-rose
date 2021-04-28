@@ -44,6 +44,21 @@ class GildedRoseTest {
     }
 
     @Test
+    void qualityOfBackstagePassesShouldIncreaseByOneWhenThereAreMoreThanTenDaysRemaining() {
+        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 0);
+        GildedRose app = new GildedRose(toArray(item));
+
+        app.updateQuality();
+        app.updateQuality();
+        app.updateQuality();
+        app.updateQuality();
+        app.updateQuality();
+
+        assertThat(item.sellIn).isEqualTo(10);
+        assertThat(item.quality).isEqualTo(5);
+    }
+
+    @Test
     void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenTenAndFiveDaysRemaining() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0);
         GildedRose app = new GildedRose(toArray(item));
