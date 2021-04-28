@@ -44,6 +44,22 @@ class GildedRoseTest {
     }
 
     @Test
+    void qualityOfAgedBrieShouldNeverIncreaseAboveFifty() {
+        Item item = new Item("Aged Brie", 0, 49);
+        GildedRose app = new GildedRose(toArray(item));
+
+        app.updateQuality();
+
+        assertThat(item.sellIn).isEqualTo(-1);
+        assertThat(item.quality).isEqualTo(50);
+
+        app.updateQuality();
+
+        assertThat(item.sellIn).isEqualTo(-2);
+        assertThat(item.quality).isEqualTo(50);
+    }
+
+    @Test
     void qualityOfBackstagePassesShouldIncreaseByOneWhenThereAreMoreThanTenDaysRemaining() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 0);
         GildedRose app = new GildedRose(toArray(item));
