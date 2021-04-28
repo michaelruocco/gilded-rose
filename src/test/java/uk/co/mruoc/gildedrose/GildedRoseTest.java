@@ -10,8 +10,8 @@ class GildedRoseTest {
 
     @Test
     void sellInOfNormalItemShouldDecreaseByOne() {
-        Item item = new Item("normal-item", 0, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        Item item = toNormalItemWithQuality(0);
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
@@ -20,8 +20,8 @@ class GildedRoseTest {
 
     @Test
     void qualityOfNormalItemShouldNeverBeNegative() {
-        Item item = new Item("normal-item", 0, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        Item item = toNormalItemWithQuality(0);
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
 
@@ -30,8 +30,8 @@ class GildedRoseTest {
 
     @Test
     void qualityOfNormalItemShouldDegradeByTwoAfterSellByDate() {
-        Item item = new Item("normal-item", 0, 10);
-        GildedRose app = new GildedRose(toArray(item));
+        Item item = toNormalItemWithQuality(10);
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
 
@@ -41,7 +41,7 @@ class GildedRoseTest {
     @Test
     void sellInOfAgedBrieShouldDecreaseByOne() {
         Item item = new Item("Aged Brie", 0, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
@@ -51,7 +51,7 @@ class GildedRoseTest {
     @Test
     void qualityOfAgedBrieShouldIncreaseByTwoTheOlderItGets() {
         Item item = new Item("Aged Brie", 0, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
 
@@ -61,7 +61,7 @@ class GildedRoseTest {
     @Test
     void qualityOfAgedBrieShouldNeverIncreaseAboveFifty() {
         Item item = new Item("Aged Brie", 0, 50);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
 
@@ -72,7 +72,7 @@ class GildedRoseTest {
     @Test
     void sellInOfBackstagePassesShouldDecreaseByOne() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
@@ -82,7 +82,7 @@ class GildedRoseTest {
     @Test
     void qualityOfBackstagePassesShouldIncreaseByOneWhenThereAreMoreThanTenDaysRemaining() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
@@ -92,7 +92,7 @@ class GildedRoseTest {
     @Test
     void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenTenAndFiveDaysRemaining() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
@@ -102,7 +102,7 @@ class GildedRoseTest {
     @Test
     void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenFiveAndZeroDaysRemaining() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
@@ -112,7 +112,7 @@ class GildedRoseTest {
     @Test
     void qualityOfBackstagePassesShouldNotIncreaseAboveFifty() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 50);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
 
@@ -122,7 +122,7 @@ class GildedRoseTest {
     @Test
     void qualityOfBackstagePassesShouldBeZeroAfterConcert() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10);
-        GildedRose app = new GildedRose(toArray(item));
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
 
@@ -131,8 +131,8 @@ class GildedRoseTest {
 
     @Test
     void sellInOfSulfurasShouldNotChange() {
-        Item item = new Item("Sulfuras, Hand of Ragnaros", 0, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        Item item = buildSulfuras();
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
@@ -141,8 +141,8 @@ class GildedRoseTest {
 
     @Test
     void sellInOfQualityOfSulfurasShouldNotChange() {
-        Item item = new Item("Sulfuras, Hand of Ragnaros", 0, 0);
-        GildedRose app = new GildedRose(toArray(item));
+        Item item = buildSulfuras();
+        GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
 
@@ -153,8 +153,20 @@ class GildedRoseTest {
         IntStream.range(0, n).forEach(i -> action.run());
     }
 
+    private static GildedRose toGildedRose(Item item) {
+        return new GildedRose(toArray(item));
+    }
+
     private static Item[] toArray(Item item) {
-        return new Item[] { item };
+        return new Item[]{item};
+    }
+
+    private static Item toNormalItemWithQuality(int quantity) {
+        return new Item("normal-item", 0, quantity);
+    }
+
+    private static Item buildSulfuras() {
+        return new Item("Sulfuras, Hand of Ragnaros", 0, 0);
     }
 
 }
