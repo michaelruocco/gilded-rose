@@ -24,13 +24,13 @@ class GildedRoseTest {
     }
 
     @Test
-    void qualityOfGenericItemShouldNeverBeNegative() {
-        Item item = new Item(GENERIC_ITEM, 0, 0);
+    void qualityOfGenericItemShouldDegradeByOneBeforeSellByDate() {
+        Item item = new Item(GENERIC_ITEM, 1, 10);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
 
-        assertThat(item.quality).isZero();
+        assertThat(item.quality).isEqualTo(9);
     }
 
     @Test
@@ -41,6 +41,16 @@ class GildedRoseTest {
         executeNTimes(1, app::updateQuality);
 
         assertThat(item.quality).isEqualTo(8);
+    }
+
+    @Test
+    void qualityOfGenericItemShouldNeverBeNegative() {
+        Item item = new Item(GENERIC_ITEM, 0, 0);
+        GildedRose app = toGildedRose(item);
+
+        executeNTimes(1, app::updateQuality);
+
+        assertThat(item.quality).isZero();
     }
 
     @Test
