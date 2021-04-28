@@ -73,6 +73,22 @@ class GildedRoseTest {
         assertThat(item.quality).isEqualTo(15);
     }
 
+    @Test
+    void qualityOfBackstagePassesShouldIncreaseBeZeroAfterConcert() {
+        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10);
+        GildedRose app = new GildedRose(toArray(item));
+
+        app.updateQuality();
+
+        assertThat(item.sellIn).isEqualTo(-1);
+        assertThat(item.quality).isZero();
+
+        app.updateQuality();
+
+        assertThat(item.sellIn).isEqualTo(-2);
+        assertThat(item.quality).isZero();
+    }
+
     private static Item[] toArray(Item item) {
         return new Item[] { item };
     }
