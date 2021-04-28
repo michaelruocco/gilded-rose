@@ -3,7 +3,7 @@ name: pipeline
 on:
   push:
     branches-ignore:
-      - 'guilded-rose-*'
+      - 'gilded-rose-*'
 
 jobs:
   build:

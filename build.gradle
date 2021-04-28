@@ -94,7 +94,7 @@ java {
     withSourcesJar()
 }
 
-def gitUrl = "https://github.com/michaelruocco/guilded-rose"
+def gitUrl = "https://github.com/michaelruocco/gilded-rose"
 def pomConfig = {
     licenses {
         license {
