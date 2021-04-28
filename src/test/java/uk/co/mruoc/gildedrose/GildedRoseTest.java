@@ -8,12 +8,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class GildedRoseTest {
 
+    private static final String GENERIC_ITEM = "generic-item";
+    private static final String AGED_BRIE = "Aged Brie";
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
     @Test
-    void sellInOfNormalItemShouldDecreaseByOne() {
-        Item item = new Item("normal-item", 0, 0);
+    void sellInOfGenericItemShouldDecreaseByOne() {
+        Item item = new Item(GENERIC_ITEM, 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -22,8 +24,8 @@ class GildedRoseTest {
     }
 
     @Test
-    void qualityOfNormalItemShouldNeverBeNegative() {
-        Item item = new Item("normal-item", 0, 0);
+    void qualityOfGenericItemShouldNeverBeNegative() {
+        Item item = new Item(GENERIC_ITEM, 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -32,8 +34,8 @@ class GildedRoseTest {
     }
 
     @Test
-    void qualityOfNormalItemShouldDegradeByTwoAfterSellByDate() {
-        Item item = new Item("normal-item", 0, 10);
+    void qualityOfGenericItemShouldDegradeByTwoAfterSellByDate() {
+        Item item = new Item(GENERIC_ITEM, 0, 10);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -43,7 +45,7 @@ class GildedRoseTest {
 
     @Test
     void sellInOfAgedBrieShouldDecreaseByOne() {
-        Item item = new Item("Aged Brie", 0, 0);
+        Item item = new Item(AGED_BRIE, 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -53,7 +55,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfAgedBrieShouldIncreaseByTwoTheOlderItGets() {
-        Item item = new Item("Aged Brie", 0, 0);
+        Item item = new Item(AGED_BRIE, 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -63,7 +65,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfAgedBrieShouldNeverIncreaseAboveFifty() {
-        Item item = new Item("Aged Brie", 0, 50);
+        Item item = new Item(AGED_BRIE, 0, 50);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
