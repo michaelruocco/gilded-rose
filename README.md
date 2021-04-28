@@ -1,14 +1,14 @@
-# Library Template
+# Guilded Rose
 
-[![Build](https://github.com/michaelruocco/library-template/workflows/pipeline/badge.svg)](https://github.com/michaelruocco/library-template/actions)
-[![codecov](https://codecov.io/gh/michaelruocco/library-template/branch/master/graph/badge.svg?token=FWDNP534O7)](https://codecov.io/gh/michaelruocco/library-template)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/272889cf707b4dcb90bf451392530794)](https://www.codacy.com/gh/michaelruocco/library-template/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelruocco/library-template&amp;utm_campaign=Badge_Grade)
-[![BCH compliance](https://bettercodehub.com/edge/badge/michaelruocco/library-template?branch=master)](https://bettercodehub.com/)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_library-template&metric=alert_status)](https://sonarcloud.io/dashboard?id=michaelruocco_library-template)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_library-template&metric=sqale_index)](https://sonarcloud.io/dashboard?id=michaelruocco_library-template)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_library-template&metric=coverage)](https://sonarcloud.io/dashboard?id=michaelruocco_library-template)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_library-template&metric=ncloc)](https://sonarcloud.io/dashboard?id=michaelruocco_library-template)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.michaelruocco/library-template.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.michaelruocco%22%20AND%20a:%22library-template%22)
+[![Build](https://github.com/michaelruocco/guilded-rose/workflows/pipeline/badge.svg)](https://github.com/michaelruocco/guilded-rose/actions)
+[![codecov](https://codecov.io/gh/michaelruocco/guilded-rose/branch/master/graph/badge.svg?token=FWDNP534O7)](https://codecov.io/gh/michaelruocco/guilded-rose)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/272889cf707b4dcb90bf451392530794)](https://www.codacy.com/gh/michaelruocco/guilded-rose/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelruocco/guilded-rose&amp;utm_campaign=Badge_Grade)
+[![BCH compliance](https://bettercodehub.com/edge/badge/michaelruocco/guilded-rose?branch=master)](https://bettercodehub.com/)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_guilded-rose&metric=alert_status)](https://sonarcloud.io/dashboard?id=michaelruocco_guilded-rose)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_guilded-rose&metric=sqale_index)](https://sonarcloud.io/dashboard?id=michaelruocco_guilded-rose)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_guilded-rose&metric=coverage)](https://sonarcloud.io/dashboard?id=michaelruocco_guilded-rose)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_guilded-rose&metric=ncloc)](https://sonarcloud.io/dashboard?id=michaelruocco_guilded-rose)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.michaelruocco/guilded-rose.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.michaelruocco%22%20AND%20a:%22guilded-rose%22)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
