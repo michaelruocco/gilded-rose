@@ -8,9 +8,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class GildedRoseTest {
 
+    private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+
     @Test
     void sellInOfNormalItemShouldDecreaseByOne() {
-        Item item = toNormalItemWithQuality(0);
+        Item item = new Item("normal-item", 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -20,7 +23,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfNormalItemShouldNeverBeNegative() {
-        Item item = toNormalItemWithQuality(0);
+        Item item = new Item("normal-item", 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -30,7 +33,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfNormalItemShouldDegradeByTwoAfterSellByDate() {
-        Item item = toNormalItemWithQuality(10);
+        Item item = new Item("normal-item", 0, 10);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -71,7 +74,7 @@ class GildedRoseTest {
 
     @Test
     void sellInOfBackstagePassesShouldDecreaseByOne() {
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0);
+        Item item = new Item(BACKSTAGE_PASSES, 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -81,7 +84,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfBackstagePassesShouldIncreaseByOneWhenThereAreMoreThanTenDaysRemaining() {
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 0);
+        Item item = new Item(BACKSTAGE_PASSES, 15, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -91,7 +94,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenTenAndFiveDaysRemaining() {
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 0);
+        Item item = new Item(BACKSTAGE_PASSES, 10, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -101,7 +104,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenFiveAndZeroDaysRemaining() {
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0);
+        Item item = new Item(BACKSTAGE_PASSES, 5, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -111,7 +114,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfBackstagePassesShouldNotIncreaseAboveFifty() {
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 1, 50);
+        Item item = new Item(BACKSTAGE_PASSES, 1, 50);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -121,7 +124,7 @@ class GildedRoseTest {
 
     @Test
     void qualityOfBackstagePassesShouldBeZeroAfterConcert() {
-        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10);
+        Item item = new Item(BACKSTAGE_PASSES, 0, 10);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -131,7 +134,7 @@ class GildedRoseTest {
 
     @Test
     void sellInOfSulfurasShouldNotChange() {
-        Item item = buildSulfuras();
+        Item item = new Item(SULFURAS, 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -141,7 +144,7 @@ class GildedRoseTest {
 
     @Test
     void sellInOfQualityOfSulfurasShouldNotChange() {
-        Item item = buildSulfuras();
+        Item item = new Item(SULFURAS, 0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -158,15 +161,7 @@ class GildedRoseTest {
     }
 
     private static Item[] toArray(Item item) {
-        return new Item[]{item};
-    }
-
-    private static Item toNormalItemWithQuality(int quantity) {
-        return new Item("normal-item", 0, quantity);
-    }
-
-    private static Item buildSulfuras() {
-        return new Item("Sulfuras, Hand of Ragnaros", 0, 0);
+        return new Item[] { item };
     }
 
 }
