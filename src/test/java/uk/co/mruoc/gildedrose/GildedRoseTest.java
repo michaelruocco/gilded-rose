@@ -9,6 +9,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 class GildedRoseTest {
 
     @Test
+    void sellInOfNormalItemShouldDecreaseByOne() {
+        Item item = new Item("normal-item", 0, 0);
+        GildedRose app = new GildedRose(toArray(item));
+
+        executeNTimes(5, app::updateQuality);
+
+        assertThat(item.sellIn).isEqualTo(-5);
+    }
+
+    @Test
     void qualityOfNormalItemShouldNeverBeNegative() {
         Item item = new Item("normal-item", 0, 0);
         GildedRose app = new GildedRose(toArray(item));
@@ -25,8 +35,17 @@ class GildedRoseTest {
 
         executeNTimes(1, app::updateQuality);
 
-        assertThat(item.sellIn).isEqualTo(-1);
         assertThat(item.quality).isEqualTo(8);
+    }
+
+    @Test
+    void sellInOfAgedBrieShouldDecreaseByOne() {
+        Item item = new Item("Aged Brie", 0, 0);
+        GildedRose app = new GildedRose(toArray(item));
+
+        executeNTimes(5, app::updateQuality);
+
+        assertThat(item.sellIn).isEqualTo(-5);
     }
 
     @Test
@@ -36,7 +55,6 @@ class GildedRoseTest {
 
         executeNTimes(1, app::updateQuality);
 
-        assertThat(item.sellIn).isEqualTo(-1);
         assertThat(item.quality).isEqualTo(2);
     }
 
@@ -52,13 +70,22 @@ class GildedRoseTest {
     }
 
     @Test
+    void sellInOfBackstagePassesShouldDecreaseByOne() {
+        Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0);
+        GildedRose app = new GildedRose(toArray(item));
+
+        executeNTimes(5, app::updateQuality);
+
+        assertThat(item.sellIn).isEqualTo(-5);
+    }
+
+    @Test
     void qualityOfBackstagePassesShouldIncreaseByOneWhenThereAreMoreThanTenDaysRemaining() {
         Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 0);
         GildedRose app = new GildedRose(toArray(item));
 
         executeNTimes(5, app::updateQuality);
 
-        assertThat(item.sellIn).isEqualTo(10);
         assertThat(item.quality).isEqualTo(5);
     }
 
@@ -69,7 +96,6 @@ class GildedRoseTest {
 
         executeNTimes(5, app::updateQuality);
 
-        assertThat(item.sellIn).isEqualTo(5);
         assertThat(item.quality).isEqualTo(10);
     }
 
@@ -80,7 +106,6 @@ class GildedRoseTest {
 
         executeNTimes(5, app::updateQuality);
 
-        assertThat(item.sellIn).isZero();
         assertThat(item.quality).isEqualTo(15);
     }
 
@@ -91,7 +116,6 @@ class GildedRoseTest {
 
         executeNTimes(1, app::updateQuality);
 
-        assertThat(item.sellIn).isZero();
         assertThat(item.quality).isEqualTo(50);
     }
 
@@ -102,7 +126,6 @@ class GildedRoseTest {
 
         executeNTimes(1, app::updateQuality);
 
-        assertThat(item.sellIn).isEqualTo(-1);
         assertThat(item.quality).isZero();
     }
 
