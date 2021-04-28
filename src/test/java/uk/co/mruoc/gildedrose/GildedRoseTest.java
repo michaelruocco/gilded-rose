@@ -2,16 +2,22 @@ package uk.co.mruoc.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class GildedRoseTest {
 
     @Test
-    void foo() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
-        GildedRose app = new GildedRose(items);
+    void qualityOfANormalItemShouldNeverBeNegative() {
+        Item item = new Item("normal-item", 0, 0);
+        GildedRose app = new GildedRose(toArray(item));
+
         app.updateQuality();
-        assertEquals("fixme", app.items[0].name);
+
+        assertThat(item.quality).isZero();
+    }
+
+    private static Item[] toArray(Item item) {
+        return new Item[] { item };
     }
 
 }
