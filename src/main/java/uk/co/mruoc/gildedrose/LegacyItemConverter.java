@@ -2,6 +2,7 @@ package uk.co.mruoc.gildedrose;
 
 import uk.co.mruoc.gildedrose.adapteditems.AgedBrie;
 import uk.co.mruoc.gildedrose.adapteditems.BackstagePasses;
+import uk.co.mruoc.gildedrose.adapteditems.Conjured;
 import uk.co.mruoc.gildedrose.adapteditems.GenericItem;
 import uk.co.mruoc.gildedrose.adapteditems.Sulfuras;
 import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
@@ -21,6 +22,7 @@ public class LegacyItemConverter {
             case AgedBrie.NAME -> new AgedBrie(legacyItem);
             case BackstagePasses.NAME -> new BackstagePasses(legacyItem);
             case Sulfuras.NAME -> new Sulfuras(legacyItem);
+            case Conjured.NAME -> new Conjured(legacyItem);
             default -> new GenericItem(legacyItem);
         };
     }

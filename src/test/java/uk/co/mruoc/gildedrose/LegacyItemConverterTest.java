@@ -3,6 +3,7 @@ package uk.co.mruoc.gildedrose;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.gildedrose.adapteditems.AgedBrie;
 import uk.co.mruoc.gildedrose.adapteditems.BackstagePasses;
+import uk.co.mruoc.gildedrose.adapteditems.Conjured;
 import uk.co.mruoc.gildedrose.adapteditems.GenericItem;
 import uk.co.mruoc.gildedrose.adapteditems.Sulfuras;
 import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
@@ -44,6 +45,18 @@ class LegacyItemConverterTest {
         UpdatableItem item = converter.toUpdatableItem(legacyItem);
 
         assertThat(item).isInstanceOf(Sulfuras.class);
+        assertThat(item).usingRecursiveComparison()
+                .ignoringFields("item")
+                .isEqualTo(legacyItem);
+    }
+
+    @Test
+    void shouldConvertLegacyItemWithNameConjuredToUpdatableItem() {
+        Item legacyItem = new Item(Conjured.NAME, 0, 0);
+
+        UpdatableItem item = converter.toUpdatableItem(legacyItem);
+
+        assertThat(item).isInstanceOf(Conjured.class);
         assertThat(item).usingRecursiveComparison()
                 .ignoringFields("item")
                 .isEqualTo(legacyItem);

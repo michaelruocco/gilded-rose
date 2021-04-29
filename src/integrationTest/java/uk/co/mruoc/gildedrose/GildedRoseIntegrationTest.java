@@ -3,6 +3,7 @@ package uk.co.mruoc.gildedrose;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.gildedrose.adapteditems.AgedBrie;
 import uk.co.mruoc.gildedrose.adapteditems.BackstagePasses;
+import uk.co.mruoc.gildedrose.adapteditems.Conjured;
 import uk.co.mruoc.gildedrose.adapteditems.GenericItem;
 import uk.co.mruoc.gildedrose.adapteditems.Sulfuras;
 import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
@@ -46,6 +47,46 @@ class GildedRoseIntegrationTest {
     @Test
     void qualityOfGenericItemShouldNotGoBelowZero() {
         UpdatableItem item = new GenericItem(0, 0);
+        GildedRose app = toGildedRose(item);
+
+        executeNTimes(1, app::updateQuality);
+
+        assertThat(item.getQuality()).isZero();
+    }
+
+    @Test
+    void sellInOfConjuredItemShouldDecreaseByOne() {
+        UpdatableItem item = new Conjured(0, 0);
+        GildedRose app = toGildedRose(item);
+
+        executeNTimes(5, app::updateQuality);
+
+        assertThat(item.getSellIn()).isEqualTo(-5);
+    }
+
+    @Test
+    void qualityOfConjuredItemShouldDecreaseByTwoBeforeSellInDate() {
+        UpdatableItem item = new Conjured(1, 10);
+        GildedRose app = toGildedRose(item);
+
+        executeNTimes(1, app::updateQuality);
+
+        assertThat(item.getQuality()).isEqualTo(8);
+    }
+
+    @Test
+    void qualityOfConjuredItemShouldDecreaseByFourAfterSellInDate() {
+        UpdatableItem item = new Conjured(0, 10);
+        GildedRose app = toGildedRose(item);
+
+        executeNTimes(1, app::updateQuality);
+
+        assertThat(item.getQuality()).isEqualTo(6);
+    }
+
+    @Test
+    void qualityOfConjuredItemShouldNotGoBelowZero() {
+        UpdatableItem item = new Conjured(0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
