@@ -8,8 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class GildedRoseIntegrationTest {
 
-    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
-
     @Test
     void sellInOfGenericItemShouldDecreaseByOne() {
         Item item = new GenericItem(0, 0);
@@ -142,7 +140,7 @@ class GildedRoseIntegrationTest {
 
     @Test
     void sellInOfSulfurasShouldNotChange() {
-        Item item = new Item(SULFURAS, 0, 80);
+        Item item = new Sulfuras();
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -152,7 +150,7 @@ class GildedRoseIntegrationTest {
 
     @Test
     void qualityOfSulfurasShouldNotChange() {
-        Item item = new Item(SULFURAS, 0, 80);
+        Item item = new Sulfuras();
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
