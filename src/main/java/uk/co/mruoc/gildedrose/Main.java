@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
-        Item[] items = new Item[] {
+        UpdatableItem[] items = new UpdatableItem[] {
                 new GenericItem("+5 Dexterity Vest", 10, 20),
                 new AgedBrie(2, 0),
                 new GenericItem("Elixir of the Mongoose", 5, 7),
@@ -15,7 +15,7 @@ public class Main {
                 new BackstagePasses(10, 49),
                 new BackstagePasses(5, 49),
                 // this conjured item does not work properly yet
-                new Item("Conjured Mana Cake", 3, 6) };
+                new GenericItem("Conjured Mana Cake", 3, 6) };
 
         GildedRose app = new GildedRose(items);
 
@@ -27,7 +27,7 @@ public class Main {
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
             System.out.println("name, sellIn, quality");
-            for (Item item : items) {
+            for (UpdatableItem item : items) {
                 System.out.println(item);
             }
             System.out.println();

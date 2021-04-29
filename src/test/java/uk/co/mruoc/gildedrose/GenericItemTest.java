@@ -27,11 +27,11 @@ class GenericItemTest {
 
     @Test
     void shouldDecreaseSellInByOne() {
-        UpdatableItem item = new GenericItem(0, 0);
+        UpdatableItem item = new GenericItem(1, 0);
 
         item.update();
 
-        assertThat(item.getSellIn()).isEqualTo(-1);
+        assertThat(item.getSellIn()).isZero();
     }
 
     @Test
