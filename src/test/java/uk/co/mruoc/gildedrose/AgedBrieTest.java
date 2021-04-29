@@ -16,12 +16,12 @@ class AgedBrieTest {
     }
 
     @Test
-    void shouldDecreaseSellByByOne() {
+    void shouldDecreaseSellInByOne() {
         UpdatableItem item = new AgedBrie(0, 0);
 
         item.update();
 
-        assertThat(item.getSellBy()).isEqualTo(-1);
+        assertThat(item.getSellIn()).isEqualTo(-1);
     }
 
     @Test

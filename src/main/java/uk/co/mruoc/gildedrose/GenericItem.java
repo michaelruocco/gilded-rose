@@ -19,7 +19,7 @@ public class GenericItem extends Item implements UpdatableItem {
     }
 
     @Override
-    public int getSellBy() {
+    public int getSellIn() {
         return sellIn;
     }
 

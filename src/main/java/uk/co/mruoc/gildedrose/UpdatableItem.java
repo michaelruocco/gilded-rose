@@ -4,7 +4,7 @@ public interface UpdatableItem {
 
     void update();
 
-    int getSellBy();
+    int getSellIn();
 
     int getQuality();
 

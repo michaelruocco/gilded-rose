@@ -13,7 +13,7 @@ public class AgedBrie extends Item implements UpdatableItem {
     }
 
     @Override
-    public int getSellBy() {
+    public int getSellIn() {
         return sellIn;
     }
 
