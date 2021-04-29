@@ -1,6 +1,11 @@
 package uk.co.mruoc.gildedrose;
 
 import org.junit.jupiter.api.Test;
+import uk.co.mruoc.gildedrose.adapteditems.AgedBrie;
+import uk.co.mruoc.gildedrose.adapteditems.BackstagePasses;
+import uk.co.mruoc.gildedrose.adapteditems.GenericItem;
+import uk.co.mruoc.gildedrose.adapteditems.Sulfuras;
+import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
 
 import java.util.stream.IntStream;
 

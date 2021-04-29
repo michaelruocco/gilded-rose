@@ -1,6 +1,8 @@
-package uk.co.mruoc.gildedrose;
+package uk.co.mruoc.gildedrose.adapteditem;
 
 import org.junit.jupiter.api.Test;
+import uk.co.mruoc.gildedrose.adapteditems.BackstagePasses;
+import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

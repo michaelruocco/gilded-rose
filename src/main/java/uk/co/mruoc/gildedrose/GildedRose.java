@@ -1,6 +1,7 @@
 package uk.co.mruoc.gildedrose;
 
 import lombok.RequiredArgsConstructor;
+import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
 
 import java.util.Arrays;
 
@@ -10,7 +11,7 @@ class GildedRose {
     private final UpdatableItem[] items;
 
     public GildedRose(Item[] items) {
-        this(new ItemConverter().toUpdatableItems(items));
+        this(new LegacyItemConverter().toUpdatableItems(items));
     }
 
     public void updateQuality() {

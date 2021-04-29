@@ -2,6 +2,7 @@ package uk.co.mruoc.gildedrose;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
+import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
 
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;

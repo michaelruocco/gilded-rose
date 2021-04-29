@@ -1,4 +1,4 @@
-package uk.co.mruoc.gildedrose;
+package uk.co.mruoc.gildedrose.adapteditems;
 
 public interface UpdatableItem {
 

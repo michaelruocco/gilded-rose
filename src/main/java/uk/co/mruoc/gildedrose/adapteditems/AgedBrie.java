@@ -1,4 +1,6 @@
-package uk.co.mruoc.gildedrose;
+package uk.co.mruoc.gildedrose.adapteditems;
+
+import uk.co.mruoc.gildedrose.Item;
 
 public class AgedBrie extends AdaptedItem implements UpdatableItem {
 
