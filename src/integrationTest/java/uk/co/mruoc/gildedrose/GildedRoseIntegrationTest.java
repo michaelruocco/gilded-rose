@@ -8,14 +8,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class GildedRoseIntegrationTest {
 
-    private static final String GENERIC_ITEM = "generic-item";
     private static final String AGED_BRIE = "Aged Brie";
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
     @Test
     void sellInOfGenericItemShouldDecreaseByOne() {
-        Item item = new Item(GENERIC_ITEM, 0, 0);
+        Item item = new GenericItem(0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -25,7 +24,7 @@ class GildedRoseIntegrationTest {
 
     @Test
     void qualityOfGenericItemShouldDegradeByOneBeforeSellByDate() {
-        Item item = new Item(GENERIC_ITEM, 1, 10);
+        Item item = new GenericItem(1, 10);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -35,7 +34,7 @@ class GildedRoseIntegrationTest {
 
     @Test
     void qualityOfGenericItemShouldDegradeByTwoAfterSellByDate() {
-        Item item = new Item(GENERIC_ITEM, 0, 10);
+        Item item = new GenericItem(0, 10);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -45,7 +44,7 @@ class GildedRoseIntegrationTest {
 
     @Test
     void qualityOfGenericItemShouldNeverBeNegative() {
-        Item item = new Item(GENERIC_ITEM, 0, 0);
+        Item item = new GenericItem(0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
