@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class GildedRoseTest {
+class GildedRoseIntegrationTest {
 
     private static final String GENERIC_ITEM = "generic-item";
     private static final String AGED_BRIE = "Aged Brie";

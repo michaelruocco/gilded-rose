@@ -10,6 +10,7 @@ plugins {
     id "org.sonarqube" version "3.1.1"
     id "nebula.lint" version "16.23.0"
     id "com.adarshr.test-logger" version "3.0.0"
+    id 'org.unbroken-dome.test-sets' version '3.0.1'
 }
 
 group "com.github.michaelruocco"
@@ -36,6 +37,10 @@ repositories {
 gradleLint {
     rules = ['all-dependency']
     alwaysRun = false
+}
+
+testSets {
+    integrationTest
 }
 
 dependencies {
