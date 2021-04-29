@@ -8,7 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class GildedRoseIntegrationTest {
 
-    private static final String AGED_BRIE = "Aged Brie";
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
@@ -23,7 +22,7 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void qualityOfGenericItemShouldDegradeByOneBeforeSellByDate() {
+    void qualityOfGenericItemShouldDecreaseByOneBeforeSellByDate() {
         Item item = new GenericItem(1, 10);
         GildedRose app = toGildedRose(item);
 
@@ -33,7 +32,7 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void qualityOfGenericItemShouldDegradeByTwoAfterSellByDate() {
+    void qualityOfGenericItemShouldDecreaseByTwoAfterSellByDate() {
         Item item = new GenericItem(0, 10);
         GildedRose app = toGildedRose(item);
 
@@ -43,7 +42,7 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void qualityOfGenericItemShouldNeverBeNegative() {
+    void qualityOfGenericItemShouldNotGoBelowZero() {
         Item item = new GenericItem(0, 0);
         GildedRose app = toGildedRose(item);
 
@@ -54,7 +53,7 @@ class GildedRoseIntegrationTest {
 
     @Test
     void sellInOfAgedBrieShouldDecreaseByOne() {
-        Item item = new Item(AGED_BRIE, 0, 0);
+        Item item = new AgedBrie(0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(5, app::updateQuality);
@@ -63,18 +62,18 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void qualityOfAgedBrieShouldIncreaseByTwoTheOlderItGets() {
-        Item item = new Item(AGED_BRIE, 0, 0);
+    void qualityOfAgedBrieShouldIncreaseByOne() {
+        Item item = new AgedBrie(0, 0);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
 
-        assertThat(item.quality).isEqualTo(2);
+        assertThat(item.quality).isEqualTo(1);
     }
 
     @Test
-    void qualityOfAgedBrieShouldNeverIncreaseAboveFifty() {
-        Item item = new Item(AGED_BRIE, 0, 50);
+    void qualityOfAgedBrieShouldNotGoAboveFifty() {
+        Item item = new AgedBrie(0, 50);
         GildedRose app = toGildedRose(item);
 
         executeNTimes(1, app::updateQuality);
@@ -94,7 +93,7 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void qualityOfBackstagePassesShouldIncreaseByOneWhenThereAreMoreThanTenDaysRemaining() {
+    void qualityOfBackstagePassesShouldIncreaseByOneWhenMoreThanTenDaysRemaining() {
         Item item = new Item(BACKSTAGE_PASSES, 15, 0);
         GildedRose app = toGildedRose(item);
 
@@ -104,7 +103,7 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenTenAndFiveDaysRemaining() {
+    void qualityOfBackstagePassesShouldIncreaseByTwoWhenBetweenFiveAndTenDaysRemaining() {
         Item item = new Item(BACKSTAGE_PASSES, 10, 0);
         GildedRose app = toGildedRose(item);
 
@@ -114,7 +113,7 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void qualityOfBackstagePassesShouldIncreaseByTwoWhenThereAreBetweenFiveAndZeroDaysRemaining() {
+    void qualityOfBackstagePassesShouldIncreaseByThreeWhenBetweenZeroAndFiveDaysRemaining() {
         Item item = new Item(BACKSTAGE_PASSES, 5, 0);
         GildedRose app = toGildedRose(item);
 
@@ -124,7 +123,7 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void qualityOfBackstagePassesShouldNotIncreaseAboveFifty() {
+    void qualityOfBackstagePassesShouldNotGoAboveFifty() {
         Item item = new Item(BACKSTAGE_PASSES, 1, 50);
         GildedRose app = toGildedRose(item);
 
