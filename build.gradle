@@ -3,6 +3,7 @@ plugins {
     id "jacoco"
     id "maven-publish"
     id "signing"
+    id "application"
     id "io.codearte.nexus-staging" version "0.30.0"
     id "com.diffplug.spotless" version "5.12.4"
     id "com.github.ben-manes.versions" version "0.38.0"
@@ -70,6 +71,10 @@ tasks.withType(Test) {
 testlogger {
     theme 'mocha'
     showStandardStreams true
+}
+
+application {
+    mainClass.set("uk.co.mruoc.gildedrose.Main")
 }
 
 jacoco {
