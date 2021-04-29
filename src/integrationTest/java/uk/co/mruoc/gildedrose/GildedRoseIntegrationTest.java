@@ -151,7 +151,7 @@ class GildedRoseIntegrationTest {
     }
 
     @Test
-    void sellInOfQualityOfSulfurasShouldNotChange() {
+    void qualityOfSulfurasShouldNotChange() {
         Item item = new Item(SULFURAS, 0, 80);
         GildedRose app = toGildedRose(item);
 
