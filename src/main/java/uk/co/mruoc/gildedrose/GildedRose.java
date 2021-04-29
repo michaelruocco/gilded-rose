@@ -9,6 +9,10 @@ class GildedRose {
 
     private final UpdatableItem[] items;
 
+    public GildedRose(Item[] items) {
+        this(new ItemConverter().toUpdatableItems(items));
+    }
+
     public void updateQuality() {
         Arrays.stream(items).forEach(UpdatableItem::update);
     }

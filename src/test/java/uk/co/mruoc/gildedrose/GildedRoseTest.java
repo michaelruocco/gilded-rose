@@ -21,7 +21,7 @@ class GildedRoseTest {
         inOrder.verify(item2).update();
     }
 
-    private UpdatableItem[] toArray(UpdatableItem... items) {
+    private static UpdatableItem[] toArray(UpdatableItem... items) {
         return items;
     }
 

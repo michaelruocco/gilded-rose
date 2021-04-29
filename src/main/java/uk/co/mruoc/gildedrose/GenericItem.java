@@ -1,6 +1,6 @@
 package uk.co.mruoc.gildedrose;
 
-public class GenericItem extends AbstractItem implements UpdatableItem {
+public class GenericItem extends AdaptedItem implements UpdatableItem {
 
     private static final String DEFAULT_NAME = "Generic Item";
 
@@ -9,7 +9,11 @@ public class GenericItem extends AbstractItem implements UpdatableItem {
     }
 
     public GenericItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+        this(new Item(name, sellIn, quality));
+    }
+
+    public GenericItem(Item item) {
+        super(item);
     }
 
     @Override
@@ -19,7 +23,7 @@ public class GenericItem extends AbstractItem implements UpdatableItem {
     }
 
     private int calculateQualityDecrease() {
-        if (sellIn < 0) {
+        if (getSellIn() < 0) {
             return 2;
         }
         return 1;
