@@ -16,16 +16,8 @@ public class BackstagePasses extends AbstractItem implements UpdatableItem {
         }
     }
 
-    private void decrementSellIn() {
-        sellIn -= 1;
-    }
-
     private boolean isAfterConcert() {
         return sellIn < 0;
-    }
-
-    private void increaseQualityIfAllowed(int amount) {
-        quality = Math.min(50, quality + amount);
     }
 
     private int calculateQualityIncrease() {

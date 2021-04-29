@@ -9,15 +9,7 @@ public class AgedBrie extends AbstractItem implements UpdatableItem {
     @Override
     public void update() {
         decrementSellIn();
-        increaseQualityIfAllowed();
-    }
-
-    private void decrementSellIn() {
-        sellIn -= 1;
-    }
-
-    private void increaseQualityIfAllowed() {
-        quality = Math.min(50, quality + 1);
+        increaseQualityIfAllowed(1);
     }
 
 }

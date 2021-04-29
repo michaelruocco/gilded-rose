@@ -21,4 +21,16 @@ public abstract class AbstractItem extends Item implements UpdatableItem {
         return name;
     }
 
+    protected void decrementSellIn() {
+        sellIn -= 1;
+    }
+
+    protected void decreaseQualityIfAllowed(int amount) {
+        quality = Math.max(0, quality - amount);
+    }
+
+    protected void increaseQualityIfAllowed(int amount) {
+        quality = Math.min(50, quality + amount);
+    }
+
 }

@@ -18,14 +18,6 @@ public class GenericItem extends AbstractItem implements UpdatableItem {
         decreaseQualityIfAllowed(calculateQualityDecrease());
     }
 
-    private void decrementSellIn() {
-        sellIn -= 1;
-    }
-
-    private void decreaseQualityIfAllowed(int amount) {
-        quality = Math.max(0, quality - amount);
-    }
-
     private int calculateQualityDecrease() {
         if (sellIn < 0) {
             return 2;
