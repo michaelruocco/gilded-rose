@@ -1,6 +1,6 @@
 package uk.co.mruoc.gildedrose;
 
-public class AgedBrie extends Item implements UpdatableItem {
+public class AgedBrie extends AbstractItem implements UpdatableItem {
 
     public AgedBrie(int sellIn, int quality) {
         super("Aged Brie", sellIn, quality);
@@ -10,21 +10,6 @@ public class AgedBrie extends Item implements UpdatableItem {
     public void update() {
         decrementSellIn();
         increaseQualityIfAllowed();
-    }
-
-    @Override
-    public int getSellIn() {
-        return sellIn;
-    }
-
-    @Override
-    public int getQuality() {
-        return quality;
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 
     private void decrementSellIn() {

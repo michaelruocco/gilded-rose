@@ -1,6 +1,6 @@
 package uk.co.mruoc.gildedrose;
 
-public class BackstagePasses extends Item implements UpdatableItem {
+public class BackstagePasses extends AbstractItem implements UpdatableItem {
 
     public BackstagePasses(int sellIn, int quality) {
         super("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
@@ -14,21 +14,6 @@ public class BackstagePasses extends Item implements UpdatableItem {
         } else {
             increaseQualityIfAllowed(calculateQualityIncrease());
         }
-    }
-
-    @Override
-    public int getSellIn() {
-        return sellIn;
-    }
-
-    @Override
-    public int getQuality() {
-        return quality;
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 
     private void decrementSellIn() {
