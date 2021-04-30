@@ -18,17 +18,13 @@ This is an attempt at the [Gilded Rose kata](https://github.com/emilybache/Gilde
 ## Useful Commands
 
 ```gradle
-// runs program with example data
-./gradlew run
-```
-
-```gradle
 // cleans build directories
 // prints currentVersion
+// checks dependency versions
+// checks for gradle issues
 // formats code
 // builds code
 // runs tests
-// checks for gradle issues
-// checks dependency versions
-./gradlew clean currentVersion dependencyUpdates lintGradle spotlessApply build
+// runs program with example data
+./gradlew clean currentVersion dependencyUpdates lintGradle spotlessApply build run
 ```
