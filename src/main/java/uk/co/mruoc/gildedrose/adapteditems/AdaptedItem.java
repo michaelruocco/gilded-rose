@@ -28,6 +28,10 @@ public abstract class AdaptedItem implements UpdatableItem {
         return item.name;
     }
 
+    protected boolean hasPassedSellBy() {
+        return item.sellIn < 0;
+    }
+
     protected void decrementSellIn() {
         item.sellIn -= 1;
     }

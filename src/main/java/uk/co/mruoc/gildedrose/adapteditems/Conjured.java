@@ -21,7 +21,7 @@ public class Conjured extends AdaptedItem implements UpdatableItem {
     }
 
     private int calculateQualityDecrease() {
-        if (getSellIn() < 0) {
+        if (hasPassedSellBy()) {
             return 4;
         }
         return 2;

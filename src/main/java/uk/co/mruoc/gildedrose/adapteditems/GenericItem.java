@@ -25,7 +25,7 @@ public class GenericItem extends AdaptedItem implements UpdatableItem {
     }
 
     private int calculateQualityDecrease() {
-        if (getSellIn() < 0) {
+        if (hasPassedSellBy()) {
             return 2;
         }
         return 1;

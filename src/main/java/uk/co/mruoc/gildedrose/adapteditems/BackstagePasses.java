@@ -17,7 +17,15 @@ public class BackstagePasses extends AdaptedItem implements UpdatableItem {
     @Override
     public void update() {
         decrementSellIn();
+        if (hasPassedSellBy()) {
+            decreaseToZero();
+            return;
+        }
         increaseQualityIfAllowed(calculateQualityIncrease());
+    }
+
+    private void decreaseToZero() {
+        decreaseQualityIfAllowed(getQuality());
     }
 
     private int calculateQualityIncrease() {
@@ -28,14 +36,7 @@ public class BackstagePasses extends AdaptedItem implements UpdatableItem {
         if (sellIn >= 5) {
             return 2;
         }
-        if (sellIn >= 0) {
-            return 3;
-        }
-        return decreaseToZero();
-    }
-
-    private int decreaseToZero() {
-        return -getQuality();
+        return 3;
     }
 
 }
