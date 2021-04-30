@@ -13,7 +13,7 @@ public class MainIntegrationTest {
 
         String output = tapSystemOut(() -> Main.main(args));
 
-        assertThat(output).isEqualToIgnoringNewLines("""
+        assertThat(output).isEqualTo("""
                 OMGHAI!
                 -------- day 0 --------
                 name, sellIn, quality
@@ -38,6 +38,7 @@ public class MainIntegrationTest {
                 Backstage passes to a TAFKAL80ETC concert, 9, 50
                 Backstage passes to a TAFKAL80ETC concert, 4, 50
                 Conjured Mana Cake, 2, 4
+                
                 """);
     }
 
