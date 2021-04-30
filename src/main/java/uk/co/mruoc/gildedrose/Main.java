@@ -4,6 +4,10 @@ import java.util.stream.IntStream;
 
 public class Main {
 
+    private Main() {
+        // main class
+    }
+
     public static void main(String[] args) {
         Item[] items = new ItemsSupplier().get();
         var app = new GildedRose(items);
