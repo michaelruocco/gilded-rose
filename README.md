@@ -18,6 +18,11 @@ This is an attempt at the [Gilded Rose kata](https://github.com/emilybache/Gilde
 ## Useful Commands
 
 ```gradle
+// runs program with example data
+./gradlew run
+```
+
+```gradle
 // cleans build directories
 // prints currentVersion
 // formats code
