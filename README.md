@@ -8,7 +8,6 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_gilded-rose&metric=sqale_index)](https://sonarcloud.io/dashboard?id=michaelruocco_gilded-rose)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_gilded-rose&metric=coverage)](https://sonarcloud.io/dashboard?id=michaelruocco_gilded-rose)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_gilded-rose&metric=ncloc)](https://sonarcloud.io/dashboard?id=michaelruocco_gilded-rose)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.michaelruocco/gilded-rose.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.michaelruocco%22%20AND%20a:%22gilded-rose%22)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
