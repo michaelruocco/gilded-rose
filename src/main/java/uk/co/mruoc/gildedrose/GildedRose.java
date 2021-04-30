@@ -1,6 +1,7 @@
 package uk.co.mruoc.gildedrose;
 
 import lombok.RequiredArgsConstructor;
+import uk.co.mruoc.gildedrose.adapteditems.LegacyItemConverter;
 import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
 
 import java.util.Arrays;

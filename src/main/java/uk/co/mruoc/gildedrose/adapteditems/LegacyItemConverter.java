@@ -1,11 +1,6 @@
-package uk.co.mruoc.gildedrose;
+package uk.co.mruoc.gildedrose.adapteditems;
 
-import uk.co.mruoc.gildedrose.adapteditems.AgedBrie;
-import uk.co.mruoc.gildedrose.adapteditems.BackstagePasses;
-import uk.co.mruoc.gildedrose.adapteditems.Conjured;
-import uk.co.mruoc.gildedrose.adapteditems.GenericItem;
-import uk.co.mruoc.gildedrose.adapteditems.Sulfuras;
-import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
+import uk.co.mruoc.gildedrose.Item;
 
 import java.util.Arrays;
 

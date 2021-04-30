@@ -1,10 +1,12 @@
-package uk.co.mruoc.gildedrose;
+package uk.co.mruoc.gildedrose.adapteditem;
 
 import org.junit.jupiter.api.Test;
+import uk.co.mruoc.gildedrose.Item;
 import uk.co.mruoc.gildedrose.adapteditems.AgedBrie;
 import uk.co.mruoc.gildedrose.adapteditems.BackstagePasses;
 import uk.co.mruoc.gildedrose.adapteditems.Conjured;
 import uk.co.mruoc.gildedrose.adapteditems.GenericItem;
+import uk.co.mruoc.gildedrose.adapteditems.LegacyItemConverter;
 import uk.co.mruoc.gildedrose.adapteditems.Sulfuras;
 import uk.co.mruoc.gildedrose.adapteditems.UpdatableItem;
 
